@@ -1,0 +1,12 @@
+# Site settings
+title: Prop Research
+email: propresearch@propoffice.com
+description: "Property data, bespoke research and data-driven analysis of real estate markets"
+baseurl: ""
+url: "http://0.0.0.0:4000"
+twitter_username: prop_research
+github_username:  propresearch
+
+# Build settings
+markdown: kramdown
+permalink: pretty
