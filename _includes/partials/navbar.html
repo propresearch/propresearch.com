@@ -21,7 +21,7 @@
                 <div class="container">
                     <ul class="nav navbar-nav">
                         <!-- Home -->
-                        <li class="hover-active active">
+                        <li class="hover-active{% if page.title == 'home' %} active{% endif %}">
                             <a href="/">
                                 Home
                             </a>
@@ -29,7 +29,7 @@
                         <!-- End Home -->
 
                         <!-- Services -->                        
-                        <li class="hover-active">
+                        <li class="hover-active{% if page.title == 'Services' %} active{% endif %}">
                             <a href="/services/">
                                 Services
                             </a>
@@ -54,29 +54,38 @@
                         <!-- End Services -->
 
                         <!-- Blog -->
+                        <!--
                         <li class="hover-active">
                             <a href="/blog/">
                                 Blog
                             </a>
                         </li>
+                        -->
                         <!-- End Blog -->
 
                         <!-- About -->
-                        <li class="hover-active">
+                        <li class="hover-active{% if page.title == 'About' %} active{% endif %}">
                             <a href="/about/">
                                 About
                             </a>
                         </li>
                         <!-- End About -->
 
+                        <!-- Contact -->
+                        <li class="hover-active{% if page.title == 'Contact' %} active{% endif %}">
+                            <a href="/contact/">
+                                Contact
+                            </a>
+                        </li>
+                        <!-- End Contact -->
+
                     </ul>                    
                     <ul class="nav navbar-nav navbar-right">
                     <ul class="social-icons">
-                        <li><a href="#" data-original-title="Facebook" class="social_facebook"></a></li>
+                        <li><a href="https://www.facebook.com/PropResearch" data-original-title="Facebook" class="social_facebook"></a></li>
                         <li><a href="http://twitter.com/prop_research" data-original-title="Twitter" class="social_twitter"></a></li>
-                        <li><a href="#" data-original-title="Google Plus" class="social_googleplus"></a></li>
+                        <li><a href="https://plus.google.com/+PropResearch" data-original-title="Google Plus" class="social_googleplus"></a></li>
                         <li><a href="http://github.com/propresearch" data-original-title="Github" class="social_github"></a></li>
-                        <li><a href="#" data-original-title="Linkedin" class="social_linkedin"></a></li>
                     </ul>
                 </ul>                    
 
