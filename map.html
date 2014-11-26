@@ -1,0 +1,61 @@
+---
+layout: map
+title:  Map
+seo_title: Map | Prop Research
+permalink: /map/
+---
+    {% include partials/breadcrumbs.html %}
+
+    <!--=== Content Part ===-->
+    <div class="container content">     
+        <div class="row margin-bottom-30">
+            <div class="col-md-12 mb-margin-bottom-30">
+                <div id="map"></div>
+                <!-- include cartodb.js library -->
+                <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
+                <script>
+        function main() {
+                var geojson_collection = 'http://amanda8.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT%20*%20FROM%20allqldsuburbboundaries%20WHERE%20loc_code%20=%20%274031%27';
+                var map = L.map('map').setView([-27.471001, 153.023458], 11);
+                L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+                    maxZoom: 18
+                }).addTo(map);
+                cartodb.createLayer(map, 'http://amanda8.cartodb.com/api/v2/viz/a2a44d1c-52d0-11e4-b056-0e018d66dc29/viz.json')
+                .addTo(map)
+                 .on('done', function(layer) {
+                  layer.setInteraction(true);
+                  layer.on('featureOver', function(e, pos, latlng, data) {
+                    cartodb.log.log(e, pos, latlng, data);
+                  });
+                  layer.on('error', function(err) {
+                    cartodb.log.log('error: ' + err);
+                  });
+                }).on('error', function() {
+                  cartodb.log.log("some error occurred");
+                });
+        }
+        $(window).load(main);
+                </script>
+            </div><!--/col-md-9-->
+            
+            <div class="col-md-4">
+                <!-- Contacts -->
+                <div class="headline"><h2>Contacts</h2></div>
+                <ul class="list-unstyled who margin-bottom-30">
+                    <li><i class="fa fa-home"></i>PO Box 1043, Hamilton, QLD 4007, Australia</li>
+                    <li><a href="mailto:info@propresearch.com"><i class="fa fa-envelope"></i>info@propresearch.com</a></li>
+                    <li><a href="http://www.propresearch.com"><i class="fa fa-globe"></i>http://www.propresearch.com</a></li>
+                </ul>
+
+                <!-- Why we are? -->
+                <div class="headline"><h2>Services</h2></div>
+                <p>We work with investors and developers seeking comprehensive understanding of property markets</p>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-check color-green"></i> Custom Property Research</li>
+                    <li><i class="fa fa-check color-green"></i> Growth Area Analysis</li>
+                </ul>
+            </div><!--/col-md-3-->
+        </div><!--/row-->
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
