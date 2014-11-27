@@ -14,6 +14,11 @@ permalink: /map/
                 <!-- include cartodb.js library -->
                 <script src="http://libs.cartocdn.com/cartodb.js/v3/3.11/cartodb.js"></script>
                 <script>
+
+        window.onload = function() {
+          cartodb.createVis('map', 'http://amanda8.cartodb.com/api/v2/viz/a2a44d1c-52d0-11e4-b056-0e018d66dc29/viz.json');
+        }
+
         function main() {
                 var geojson_collection = 'http://amanda8.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT%20*%20FROM%20allqldsuburbboundaries%20WHERE%20loc_code%20=%20%274031%27';
                 var map = L.map('map').setView([-27.471001, 153.023458], 11);
@@ -35,7 +40,7 @@ permalink: /map/
                   cartodb.log.log("some error occurred");
                 });
         }
-        $(window).load(main);
+        //$(window).load(main);
                 </script>
             </div><!--/col-md-9-->
             
